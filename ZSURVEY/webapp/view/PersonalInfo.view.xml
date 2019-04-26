@@ -1,0 +1,59 @@
+<mvc:View xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form" 
+	xmlns:l="sap.ui.layout"
+	controllerName="com.sds.erp.ZSURVEY.controller.PersonalInfo"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="정보 입력">
+				<content>
+					
+					<l:VerticalLayout id="containerLayout" width="100%" >
+						<l:BlockLayout id="BlockLayout">
+							<l:BlockLayoutRow accentCells="Accent1">
+								<l:BlockLayoutCell
+									id="Accent1"
+									width="2">
+									<ObjectIdentifier 
+										title="입력자 정보" 
+										text="이름과 소속, 연락처 정보를 입력해주세요" 
+										titleActive="true"/>
+								</l:BlockLayoutCell>
+							</l:BlockLayoutRow>								
+						</l:BlockLayout>
+					</l:VerticalLayout>
+					
+					<f:SimpleForm editable="true">
+                        <Label text="이름" required="true"/>
+                        <Input type="Text" placeholder="Enter Name ..."/>
+
+                        <Label text="회사" required="true"/>
+                        <Input type="Text" placeholder="Enter Company ..."/>
+
+                        <Label text="부서"/>
+                        <Input type="Text" placeholder="Enter Dept. ..."/>
+
+                        <Label text="연락처" required="true"/>
+                        <Input type="Text" placeholder="+82 01012345678"/>
+
+                        <Label text="이메일" required="true"/>
+                        <Input type="Text" placeholder="contact@samsung.com"/>
+					</f:SimpleForm>
+					
+				</content>
+
+				<footer>
+					<OverflowToolbar id="otbFooter">
+						<ToolbarSpacer/>
+						<Button width="100%" type="Default" text="다음" press=".onNavToSurvey">
+							<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>
+						</Button>
+					</OverflowToolbar>
+				</footer>		
+				
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
