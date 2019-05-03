@@ -7,12 +7,19 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("com.sds.erp.ZSURVEY.controller.Startpage", {
-		onInit: function () {
-		
+		onInit: function (oEvent) {
 			
 		},
 
 		onNavToPersonal: function () {
+			this.getOwnerComponent().getModel("results").read("/Results", {
+				success: function (response) {
+					console.log(response);
+				},
+				error: function (oError) {
+					console.log(oError);
+				}
+			});
 			this.getRouter().navTo("personal");
 		},
 

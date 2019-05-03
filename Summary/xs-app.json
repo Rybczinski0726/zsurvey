@@ -1,6 +1,6 @@
 {
-  "welcomeFile": "/ZSURVEY/index.html",
-  "authenticationMethod": "none",
+  "welcomeFile": "/Summary/test/flpSandbox.html",
+  "authenticationMethod": "route",
   "logout": {
     "logoutEndpoint": "/do/logout"
   },
@@ -12,7 +12,7 @@
       "csrfProtection": false
     },
     {
-      "source": "^/ZSURVEY/(.*)$",
+      "source": "^/Summary/(.*)$",
       "target": "$1",
       "localDir": "webapp"
     }

@@ -1,39 +1,24 @@
-<mvc:View xmlns:core="sap.ui.core" 
-	xmlns:f="sap.ui.layout.form" 
-	xmlns:l="sap.ui.layout"
-	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.sds.erp.ZSURVEY.controller.Submit"
-	xmlns:html="http://www.w3.org/1999/xhtml">
-	<App>
-		<pages>
-			<Page title="제출완료">
-				<content>
-					<l:VerticalLayout id="containerLayout" width="100%" >
-						<l:BlockLayout id="BlockLayout">
-							<l:BlockLayoutRow accentCells="Accent1">
-								<l:BlockLayoutCell
-									id="Accent1"
-									width="2">
-									<ObjectIdentifier 
-										title="설문이 완료되었습니다"
-										text="귀사는 Value Discovery Basic 을 통해 프로세스 효율화가 필요합니다." 
-										titleActive="true"/>
-								</l:BlockLayoutCell>
-							</l:BlockLayoutRow>				
-						</l:BlockLayout>
-					</l:VerticalLayout>					
-					
-				</content>
-
-				<footer>
-					<OverflowToolbar id="otbFooter">
-						<ToolbarSpacer/>
-						<Button width="100%" type="Default" text="사은품 받기" press=".onNavToSubmit">
-							<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>
-						</Button>
-					</OverflowToolbar>
-				</footer>		
-				
-			</Page>
-		</pages>
-	</App>
+<mvc:View xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="com.sds.erp.ZSURVEY.controller.Submit" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="제출완료">
+		<content>
+			<l:VerticalLayout id="containerLayout" width="100%">
+				<l:BlockLayout id="BlockLayout">
+					<l:BlockLayoutRow accentCells="Accent1">
+						<l:BlockLayoutCell id="Accent1" width="2">
+							<ObjectIdentifier title="설문이 완료되었습니다" text="귀사는 Value Discovery Basic 을 통해 프로세스 효율화가 필요합니다." titleActive="true"/>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</l:VerticalLayout>
+		</content>
+		<footer>
+			<OverflowToolbar id="otbFooter">
+				<ToolbarSpacer/>
+				<Button width="100%" type="Default" text="사은품 받기" press=".onNavToSubmit">
+					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+				</Button>
+			</OverflowToolbar>
+		</footer>
+	</Page>
 </mvc:View>

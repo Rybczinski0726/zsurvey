@@ -1,0 +1,10 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:sap="http://www.sap.com/Protocols/SAPData"
+	xmlns:ux="http://www.sap.com/Protocols/OData4SAP/UX" xmlns:gp="http://www.sap.com/Protocols/SAPData/GenericPlayer" Version="1.0">
+	<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="CatalogService">
+			<EntityType Name="Results">
+				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" Type="Edm.Guid" Nullable="false"/><Property Name="company" Type="Edm.String" MaxLength="30"/><Property Name="name1" Type="Edm.String" MaxLength="30"/><Property Name="phone" Type="Edm.String" MaxLength="30"/><Property Name="q1" Type="Edm.String" MaxLength="30"/><Property Name="q2" Type="Edm.String" MaxLength="30"/><Property Name="q2_1" Type="Edm.String" MaxLength="30"/><Property Name="q2_2" Type="Edm.String" MaxLength="30"/><Property Name="q2_3" Type="Edm.String" MaxLength="30"/><Property Name="q3" Type="Edm.String" MaxLength="30"/><Property Name="q4" Type="Edm.String" MaxLength="30"/><Property Name="q4_1" Type="Edm.String" MaxLength="30"/><Property Name="q5" Type="Edm.String" MaxLength="30"/><Property Name="q5_1" Type="Edm.String" MaxLength="30"/><Property Name="q6" Type="Edm.String"/></EntityType>
+			<EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true"><EntitySet Name="Results" EntityType="CatalogService.Results"/></EntityContainer>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

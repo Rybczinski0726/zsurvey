@@ -5,8 +5,8 @@ sap.ui.define([
 
 	return Controller.extend("com.sds.erp.ZSURVEY.controller.Personal", {
 
-		onInit: function () {
-
+		onInit: function (oEvent) {
+			// console.log(oEvent);
 		},
 
 		onPressAccept: function (evt) {

@@ -1,35 +1,37 @@
-<mvc:View
-	controllerName="com.sds.erp.ZSURVEY.controller.Startpage"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns="sap.m"
-	xmlns:l="sap.ui.layout"
-	xmlns:layout="sap.ui.layout"
-	xmlns:microchart="sap.suite.ui.microchart">
-	<Page title="" showHeader="false" >
+<mvc:View controllerName="com.sds.erp.ZSURVEY.controller.Startpage" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:layout="sap.ui.layout" xmlns:microchart="sap.suite.ui.microchart">
+	<Page title="" showHeader="false">
 		<content>
-			<l:VerticalLayout id="containerLayout" width="100%" >
+			<l:VerticalLayout id="containerLayout" width="100%">
 				<l:BlockLayout id="BlockLayout">
 					<l:BlockLayoutRow accentCells="Accent1">
-						<l:BlockLayoutCell
-							id="Accent1"
-							width="2"
-							title="SAMSUNG SDS"
-							titleLevel="H1"
-							titleAlignment="Center">
-							<ObjectIdentifier 
-								title="설문조사" 
-								text="본 설문조사는 SAP 사용 만족도 조사입니다." 
-								titleActive="true"/>
+						<l:BlockLayoutCell id="Accent1" width="2" title="SAMSUNG SDS" titleLevel="H1" titleAlignment="Center">
+							<ObjectIdentifier title="설문조사" text="본 설문조사는 SAP 사용 만족도 조사입니다." titleActive="true"/>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow accentCells="Accent2">
+						<!--width="2" title="SAMSUNG SDS" titleLevel="H1" titleAlignment="Center"-->
+						<l:BlockLayoutCell id="Accent2">
+							<Image src="image/main3.png" densityAware="false" width="100%">
+								<layoutData>
+									<FlexItemData growFactor="1"/>
+								</layoutData>
+							</Image>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow accentCells="Accent3">
+						<l:BlockLayoutCell id="Accent3">
+							<ObjectStatus class="sapUiSmallMarginBottom" text="이 설문조사 App은 SAP Cloud Platform 상에 SAPUI5(Fiori) 기술로 구현되었습니다."
+										  icon="sap-icon://hint" state="Information"/>
 						</l:BlockLayoutCell>
 					</l:BlockLayoutRow>
 				</l:BlockLayout>
 			</l:VerticalLayout>
 		</content>
-
 		<footer>
 			<OverflowToolbar id="otbFooter">
 				<Button width="100%" type="Default" text="시작" press=".onNavToPersonal">
-					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>
+					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
 				</Button>
 			</OverflowToolbar>
 		</footer>

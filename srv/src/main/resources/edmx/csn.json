@@ -1,0 +1,264 @@
+{
+  "namespace": "sds.survey",
+  "definitions": {
+    "sds.survey.Result": {
+      "kind": "entity",
+      "elements": {
+        "ID": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.UUID",
+          "@cds.persistence.name": "ID"
+        },
+        "company": {
+          "indexNo": 2,
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "COMPANY"
+        },
+        "name1": {
+          "indexNo": 3,
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "NAME1"
+        },
+        "phone": {
+          "indexNo": 4,
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "PHONE"
+        },
+        "q1": {
+          "indexNo": 5,
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "Q1"
+        },
+        "q2": {
+          "indexNo": 6,
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "Q2"
+        },
+        "q2_1": {
+          "indexNo": 7,
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "Q2_1"
+        },
+        "q2_2": {
+          "indexNo": 8,
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "Q2_2"
+        },
+        "q2_3": {
+          "indexNo": 9,
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "Q2_3"
+        },
+        "q3": {
+          "indexNo": 10,
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "Q3"
+        },
+        "q4": {
+          "indexNo": 11,
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "Q4"
+        },
+        "q4_1": {
+          "indexNo": 12,
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "Q4_1"
+        },
+        "q5": {
+          "indexNo": 13,
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "Q5"
+        },
+        "q5_1": {
+          "indexNo": 14,
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "Q5_1"
+        },
+        "q6": {
+          "indexNo": 15,
+          "type": "cds.String",
+          "@cds.persistence.name": "Q6"
+        }
+      },
+      "@cds.persistence.name": "SDS_SURVEY_RESULT"
+    },
+    "CatalogService": {
+      "kind": "service",
+      "@source": "srv/cat-service.cds"
+    },
+    "CatalogService.Results": {
+      "kind": "entity",
+      "source": "sds.survey.Result",
+      "elements": {
+        "ID": {
+          "origin": "sds.survey.Result..ID",
+          "indexNo": 1,
+          "value": {
+            "=": "Result.ID"
+          },
+          "key": true,
+          "type": "cds.UUID",
+          "@cds.persistence.name": "ID"
+        },
+        "company": {
+          "origin": "sds.survey.Result..company",
+          "indexNo": 2,
+          "value": {
+            "=": "Result.company"
+          },
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "COMPANY"
+        },
+        "name1": {
+          "origin": "sds.survey.Result..name1",
+          "indexNo": 3,
+          "value": {
+            "=": "Result.name1"
+          },
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "NAME1"
+        },
+        "phone": {
+          "origin": "sds.survey.Result..phone",
+          "indexNo": 4,
+          "value": {
+            "=": "Result.phone"
+          },
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "PHONE"
+        },
+        "q1": {
+          "origin": "sds.survey.Result..q1",
+          "indexNo": 5,
+          "value": {
+            "=": "Result.q1"
+          },
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "Q1"
+        },
+        "q2": {
+          "origin": "sds.survey.Result..q2",
+          "indexNo": 6,
+          "value": {
+            "=": "Result.q2"
+          },
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "Q2"
+        },
+        "q2_1": {
+          "origin": "sds.survey.Result..q2_1",
+          "indexNo": 7,
+          "value": {
+            "=": "Result.q2_1"
+          },
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "Q2_1"
+        },
+        "q2_2": {
+          "origin": "sds.survey.Result..q2_2",
+          "indexNo": 8,
+          "value": {
+            "=": "Result.q2_2"
+          },
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "Q2_2"
+        },
+        "q2_3": {
+          "origin": "sds.survey.Result..q2_3",
+          "indexNo": 9,
+          "value": {
+            "=": "Result.q2_3"
+          },
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "Q2_3"
+        },
+        "q3": {
+          "origin": "sds.survey.Result..q3",
+          "indexNo": 10,
+          "value": {
+            "=": "Result.q3"
+          },
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "Q3"
+        },
+        "q4": {
+          "origin": "sds.survey.Result..q4",
+          "indexNo": 11,
+          "value": {
+            "=": "Result.q4"
+          },
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "Q4"
+        },
+        "q4_1": {
+          "origin": "sds.survey.Result..q4_1",
+          "indexNo": 12,
+          "value": {
+            "=": "Result.q4_1"
+          },
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "Q4_1"
+        },
+        "q5": {
+          "origin": "sds.survey.Result..q5",
+          "indexNo": 13,
+          "value": {
+            "=": "Result.q5"
+          },
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "Q5"
+        },
+        "q5_1": {
+          "origin": "sds.survey.Result..q5_1",
+          "indexNo": 14,
+          "value": {
+            "=": "Result.q5_1"
+          },
+          "type": "cds.String",
+          "length": 30,
+          "@cds.persistence.name": "Q5_1"
+        },
+        "q6": {
+          "origin": "sds.survey.Result..q6",
+          "indexNo": 15,
+          "value": {
+            "=": "Result.q6"
+          },
+          "type": "cds.String",
+          "@cds.persistence.name": "Q6"
+        }
+      },
+      "@cds.persistence.name": "CATALOGSERVICE_RESULTS"
+    }
+  },
+  "version": {
+    "csn": "0.1.0"
+  },
+  "@sql_mapping": "plain"
+}

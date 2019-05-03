@@ -1,6 +1,15 @@
 {
   "welcomeFile": "/webapp/index.html",
   "routes": [
+  	{
+      "path": "/odata/v2",
+      "target": {
+        "type": "destination",
+        "name": "destination-placeholder",
+        "entryPath": "/odata/v2"
+      },
+      "description": "Dummy destination to be mapped to a real destination when running the application (hc_destmapping URL parameter)"
+    },
     {
       "path": "/resources",
       "target": {

@@ -30,13 +30,38 @@ modules:
     type: html5
     path: ZSURVEY
     parameters:
-       disk-quota: 256M
+       disk-quota: 512M
        memory: 256M
     build-parameters:
        builder: grunt
     requires:
      - name: uaa_ZSURVEY_CF
      - name: dest_ZSURVEY_CF
+     - name: srv_api
+       group: destinations
+       properties:
+          forwardAuthToken: true
+          strictSSL: false
+          name: srv_api
+          url: ~{url}
+
+  - name: Summary
+    type: html5
+    path: Summary
+    parameters:
+       disk-quota: 256M
+       memory: 256M
+    build-parameters:
+       builder: grunt
+    requires:
+     - name: srv_api
+       group: destinations
+       properties:
+          forwardAuthToken: true
+          strictSSL: false
+          name: srv_api
+          url: ~{url}
+     - name: uaa_ZSURVEY_CF
 
 resources:
   - name: ZSURVEY_CF-hdi-container

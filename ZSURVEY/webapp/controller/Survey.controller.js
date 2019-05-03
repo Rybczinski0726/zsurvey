@@ -3,7 +3,7 @@ sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/json/JSONModel",
 	"sap/m/MessageToast",
-	"sap/m/MessageBox"	
+	"sap/m/MessageBox"
 ], function (
 	jQuery, Controller, JSONModel, MessageToast, MessageBox
 ) {
@@ -23,8 +23,8 @@ sap.ui.define([
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 		 * @memberOf com.sds.erp.ZSURVEY.view.Survey
 		 */
-		onInit: function () {
-
+		onInit: function (oEvent) {
+			// console.log(oEvent);
 			this._wizard = this.byId("CreateSurveyWizard");
 			this._oNavContainer = this.byId("wizardNavContainer");
 			this._oWizardContentPage = this.byId("wizardContentPage");
@@ -40,10 +40,55 @@ sap.ui.define([
 
 			//this.model.loadData(sap.ui.require.toUrl("sap/ui/demo/mock") + "/products.json");
 			this.getView().setModel(oLocalModel, "localModel");
-
+			this._oSurveyModel = this.getOwnerComponent().getModel().getProperty("/surveyResult");
 		},
+
+		saveResult: function (sNumber) {
+			switch (sNumber) {
+			case '1':
+				this._oSurveyModel.q1 = this.byId("rbgQ1").getSelectedButton().getText();
+				break;
+			default:
+			}
+		},
+
 		onNavToSubmit: function () {
-			this.getRouter().navTo("Submit"); 
+			this._oSurveyModel.q1 = this.byId("idRbgQ1").getSelectedButton().getText();
+			this._oSurveyModel.q2 = this.byId("idStep2YesNo").getSelectedKey();
+			if (this._oSurveyModel.q2 === "Yes") {
+				this._oSurveyModel.q2_1 = this.byId("idRbgQ2_1").getSelectedButton().getText();
+				this._oSurveyModel.q2_2 = this.byId("idRbgQ2_2").getSelectedButton().getText();
+				this._oSurveyModel.q2_3 = this.byId("idRbgQ2_3").getSelectedButton().getText();
+			} else {
+				this._oSurveyModel.q2_1 = "";
+				this._oSurveyModel.q2_2 = "";
+				this._oSurveyModel.q2_3 = "";
+			}
+			this._oSurveyModel.q3 = this.byId("idRbgQ3").getSelectedButton().getText();
+			this._oSurveyModel.q4 = this.byId("idStep4YesNo").getSelectedKey();
+			if (this._oSurveyModel.q4 === "Yes") {
+				this._oSurveyModel.q4_1 = this.byId("idRbgQ4_1").getSelectedButton().getText();
+			} else {
+				this._oSurveyModel.q4_1 = "";
+			}
+			this._oSurveyModel.q5 = this.byId("idStep5YesNo").getSelectedKey();
+			if (this._oSurveyModel.q5 === "Yes") {
+				this._oSurveyModel.q5_1 = this.byId("idRbgQ5_1").getSelectedButton().getText();
+			} else {
+				this._oSurveyModel.q5_1 = "";
+			}
+			this._oSurveyModel.q6 = this.byId("idTAQ6").getValue();
+
+			this.getOwnerComponent().getModel("results").create("/Results", this._oSurveyModel, {
+				success: function (response) {
+					console.log(response);
+				},
+				error: function (oError) {
+					console.log(oError);
+				}
+			});
+
+			this.getRouter().navTo("Submit");
 		},
 
 		getRouter: function () {
@@ -53,51 +98,51 @@ sap.ui.define([
 		selectedAtStep2: function () {
 			var oLocalModel = this.getView().getModel("localModel");
 			var selectedKey = oLocalModel.getProperty("/selectedAnswerAtStep2");
-			var oButton = this.byId("idStep2YesNo"); 
+			var oButton = this.byId("idStep2YesNo");
 			selectedKey = oButton.getSelectedKey();
 			switch (selectedKey) {
-				case "Yes" :
-					this.byId("Step2").setNextStep(this.getView().byId("Step2Yes"));
-					break;
-				case "No" :
-					default:
-					this.byId("Step2").setNextStep(this.getView().byId("Step3"));
-					break;
+			case "Yes":
+				this.byId("Step2").setNextStep(this.getView().byId("Step2Yes"));
+				break;
+			case "No":
+			default:
+				this.byId("Step2").setNextStep(this.getView().byId("Step3"));
+				break;
 			}
 		},
-		
+
 		selectedAtStep4: function () {
 			var oLocalModel = this.getView().getModel("localModel");
 			var selectedKey = oLocalModel.getProperty("/selectedAnswerAtStep4");
-			var oButton = this.byId("idStep4YesNo"); 
+			var oButton = this.byId("idStep4YesNo");
 			selectedKey = oButton.getSelectedKey();
 			switch (selectedKey) {
-				case "Yes" :
-					this.byId("Step4").setNextStep(this.getView().byId("Step4Yes"));
-					break;
-				case "No" :
-					default:
-					this.byId("Step4").setNextStep(this.getView().byId("Step5"));
-					break;
+			case "Yes":
+				this.byId("Step4").setNextStep(this.getView().byId("Step4Yes"));
+				break;
+			case "No":
+			default:
+				this.byId("Step4").setNextStep(this.getView().byId("Step5"));
+				break;
 			}
-		},		
-		
+		},
+
 		selectedAtStep5: function () {
 			var oLocalModel = this.getView().getModel("localModel");
 			var selectedKey = oLocalModel.getProperty("/selectedAnswerAtStep5");
-			var oButton = this.byId("idStep5YesNo"); 
+			var oButton = this.byId("idStep5YesNo");
 			selectedKey = oButton.getSelectedKey();
 			switch (selectedKey) {
-				case "Yes" :
-					this.byId("Step5").setNextStep(this.getView().byId("Step5Yes"));
-					break;
-				case "No" :
-					default:
-					this.byId("Step5").setNextStep(this.getView().byId("Step6"));
-					break;
+			case "Yes":
+				this.byId("Step5").setNextStep(this.getView().byId("Step5Yes"));
+				break;
+			case "No":
+			default:
+				this.byId("Step5").setNextStep(this.getView().byId("Step6"));
+				break;
 			}
-		},			
-		
+		},
+
 		setAnswerAtStep2: function () {
 			this.setDiscardableProperty({
 				message: "응답 내용을 바꾸시겠습니까? 상세질문에 대한 기존 응답은 삭제됩니다",
@@ -106,7 +151,7 @@ sap.ui.define([
 				historyPath: "prevAnswerSelectAtStep2"
 			});
 		},
-		
+
 		setAnswerAtStep4: function () {
 			this.setDiscardableProperty({
 				message: "응답 내용을 바꾸시겠습니까? 상세질문에 대한 기존 응답은 삭제됩니다",
@@ -115,7 +160,7 @@ sap.ui.define([
 				historyPath: "prevAnswerSelectAtStep4"
 			});
 		},
-		
+
 		setAnswerAtStep5: function () {
 			this.setDiscardableProperty({
 				message: "응답 내용을 바꾸시겠습니까? 상세질문에 대한 기존 응답은 삭제됩니다",
@@ -123,14 +168,14 @@ sap.ui.define([
 				modelPath: "/selectedAnswerAtStep5",
 				historyPath: "prevAnswerSelectAtStep5"
 			});
-		},		
+		},
 
-		setDiscardableProperty : function (params) {
+		setDiscardableProperty: function (params) {
 			var oLocalModel = this.getView().getModel("localModel");
-			
+
 			if (this._wizard.getProgressStep() !== params.discardStep) {
 				MessageBox.warning(params.message, {
-					actions:[MessageBox.Action.YES, MessageBox.Action.NO],
+					actions: [MessageBox.Action.YES, MessageBox.Action.NO],
 					onClose: function (oAction) {
 						if (oAction === MessageBox.Action.YES) {
 							this._wizard.discardProgress(params.discardStep);
@@ -143,8 +188,8 @@ sap.ui.define([
 			} else {
 				history[params.historyPath] = oLocalModel.getProperty(params.modelPath);
 			}
-		}	
-		
+		}
+
 	});
 
 });
